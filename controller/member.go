@@ -31,13 +31,13 @@ func (m Member) RouteSetup(g *gin.Engine) {
 	member.GET(":member_id", func(c *gin.Context) {
 		mid := c.Param("member_id")
 		c.JSON(http.StatusOK, gin.H{
-			"action": fmt.Sprintf("get Member %s", mid),
+			"action": fmt.Sprintf("get member %s", mid),
 		})
 	})
 	member.DELETE(":member_id", func(c *gin.Context) {
 		mid := c.Param("member_id")
 		c.JSON(http.StatusOK, gin.H{
-			"action": fmt.Sprintf("delete Member %s", mid),
+			"action": fmt.Sprintf("delete member %s", mid),
 		})
 	})
 }
