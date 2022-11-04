@@ -15,26 +15,22 @@ func (m Member) RouteSetup(g *gin.Engine) {
 		c.JSON(http.StatusOK, gin.H{
 			"action": "create new Member",
 		})
-	})
-	member.PUT(":member_id", func(c *gin.Context) {
+	}).PUT(":member_id", func(c *gin.Context) {
 		mid := c.Param("member_id")
 		c.JSON(http.StatusOK, gin.H{
 			"action": fmt.Sprintf("put(replace all) Member %s", mid),
 		})
-	})
-	member.PATCH(":member_id", func(c *gin.Context) {
+	}).PATCH(":member_id", func(c *gin.Context) {
 		mid := c.Param("member_id")
 		c.JSON(http.StatusOK, gin.H{
 			"action": fmt.Sprintf("patch(update partical) Member %s", mid),
 		})
-	})
-	member.GET(":member_id", func(c *gin.Context) {
+	}).GET(":member_id", func(c *gin.Context) {
 		mid := c.Param("member_id")
 		c.JSON(http.StatusOK, gin.H{
 			"action": fmt.Sprintf("get member %s", mid),
 		})
-	})
-	member.DELETE(":member_id", func(c *gin.Context) {
+	}).DELETE(":member_id", func(c *gin.Context) {
 		mid := c.Param("member_id")
 		c.JSON(http.StatusOK, gin.H{
 			"action": fmt.Sprintf("delete member %s", mid),
