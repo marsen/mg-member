@@ -1,0 +1,22 @@
+
+# @member_url = http://localhost:8080/member
+###
+GET {{member_url}}/1
+
+###
+POST {{member_url}}
+content-type: application/json
+
+{
+  "age": 18,
+  "name": "mark"
+}
+
+###
+PUT {{member_url}}/1
+
+###
+PATCH {{member_url}}/1
+
+###
+DELETE {{member_url}}/1
