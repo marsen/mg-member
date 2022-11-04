@@ -16,8 +16,12 @@ func (r *Route) Setup() {
 			"message": "pong",
 		})
 	})
+	//todo use some pattern reduce the code
 	memberCtrl := &controller.Member{}
 	memberCtrl.RouteSetup(g)
+	healthCtrl := &controller.Health{}
+	healthCtrl.RouteSetup(g)
+	//
 	g.RedirectFixedPath = true // case insensitivity
 	g.Run()                    // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
 
