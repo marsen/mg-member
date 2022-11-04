@@ -1,18 +1,22 @@
-GET localhost:8080/member/1
+
+# @member_url = http://localhost:8080/member
+###
+GET {{member_url}}/1
 
 ###
-POST localhost:8080/member
+POST {{member_url}}
 content-type: application/json
 
 {
-    "age":18,
-    "name":"mark"
+  "age": 18,
+  "name": "mark"
 }
-###
-PUT localhost:8080/member/1
 
 ###
-PATCH localhost:8080/member/1
+PUT {{member_url}}/1
 
 ###
-DELETE localhost:8080/member/1
+PATCH {{member_url}}/1
+
+###
+DELETE {{member_url}}/1
