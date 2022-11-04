@@ -5,11 +5,10 @@
 
 ## Postgres DB
 
-pull image 
-> docker pull postgres
+1. pull image 
+    > docker pull postgres
 
-run database
-> docker run postgres
+2. run postgres database
 
 perhaps you'll get an error message like this:
 
@@ -22,7 +21,20 @@ perhaps you'll get an error message like this:
 > See PostgreSQL documentation about "trust":
 >  https://www.postgresql.org/docs/current/auth-trust.html
 
+to fix this problem, you have to provide password , and default user will be `postgres`  
+but you can change it too
 
+```shell
+ docker run --name=pg-member-db -p 5432:5432 \
+ -e POSTGRES_PASSWORD= \
+ -e POSTGRES_USER= \
+ -d postgres
 ```
-docker run --name=pg-member-db -p 5432:5432 -e POSTGRES_PASSWORD=password postgres
+
+3. create database
+
+```sql
+create database member
 ```
+
+### NEXT? MIGRATION OR SQL COMMAND ?

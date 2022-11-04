@@ -10,7 +10,7 @@ type DB struct {
 
 func (o *DB) Migrate() {
 	//todo connection database
-	dbURI := "host=localhost user=test password=p@ssw0rd dbname=member sslmode=disable" //todo connection string from config
+	dbURI := "host=localhost user=admin password=1234 dbname=member sslmode=disable" //todo connection string from config
 	db, err := gorm.Open(postgres.Open(dbURI), &gorm.Config{})
 
 	if err != nil {
