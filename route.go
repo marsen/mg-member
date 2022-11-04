@@ -22,12 +22,6 @@ func (r *Route) Setup() {
 			"action": "create new member",
 		})
 	})
-	member.GET(":member_id", func(c *gin.Context) {
-		mid := c.Param("member_id")
-		c.JSON(http.StatusOK, gin.H{
-			"action": fmt.Sprintf("get member %s", mid),
-		})
-	})
 	member.PUT(":member_id", func(c *gin.Context) {
 		mid := c.Param("member_id")
 		c.JSON(http.StatusOK, gin.H{
@@ -38,6 +32,18 @@ func (r *Route) Setup() {
 		mid := c.Param("member_id")
 		c.JSON(http.StatusOK, gin.H{
 			"action": fmt.Sprintf("patch(update partical) member %s", mid),
+		})
+	})
+	member.GET(":member_id", func(c *gin.Context) {
+		mid := c.Param("member_id")
+		c.JSON(http.StatusOK, gin.H{
+			"action": fmt.Sprintf("get member %s", mid),
+		})
+	})
+	member.DELETE(":member_id", func(c *gin.Context) {
+		mid := c.Param("member_id")
+		c.JSON(http.StatusOK, gin.H{
+			"action": fmt.Sprintf("delete member %s", mid),
 		})
 	})
 	g.Run() // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
