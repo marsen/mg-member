@@ -5,11 +5,11 @@
 > go mod download
 
 ## migrate test data
-```
 
-```
+```go=
 o := access.DB{}
 o.Migrate()
 o.Seed()
+```
 
 (fin)
