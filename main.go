@@ -9,6 +9,7 @@ func main() {
 	fmt.Printf("Hello Marsen Go Member")
 	o := access.DB{}
 	o.Migrate()
+	o.Seed()
 	r := &Route{}
 	r.Setup()
 }
