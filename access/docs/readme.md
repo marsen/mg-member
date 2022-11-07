@@ -26,9 +26,16 @@
    
    ```shell
     docker run --name=pg-member-db -p 5432:5432 \
-    -e POSTGRES_PASSWORD= \
-    -e POSTGRES_USER= \
+    -e POSTGRES_PASSWORD= {your password} \
+    -e POSTGRES_USER={your sa user} \
     -d postgres
+   ```
+   sample
+   ```
+   docker run --name=pg-member-db -p 5432:5432 \
+   -e POSTGRES_PASSWORD=1234 \
+   -e POSTGRES_USER=admin \
+   -d postgres
    ```
 
 3. create database
