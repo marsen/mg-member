@@ -10,6 +10,8 @@ func main() {
 	o := access.DB{}
 	o.Migrate()
 	o.Seed()
+	cfg := &Config{}
+	cfg.Of()
 	r := &Route{}
 	r.Setup()
 }
