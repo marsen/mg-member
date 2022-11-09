@@ -9,6 +9,7 @@ import (
 type IConfig interface {
 	Of() RootConfig
 }
+
 type RootConfig struct {
 	DBUri string `env:"DBUri"`
 }
@@ -43,13 +44,8 @@ func (cfg *Config) load() {
 
 func (cfg *Config) loadEnvironment() {
 	cfg.vp.MustBindEnv("PORT")
-	prefix := "TSPG"
-	cfg.vp.BindEnv("PaymentUrl", "PAYMENT_URL")
-	cfg.vp.BindEnv(prefix+".MerchantId", prefix+"_MERCHANT_ID")
-	cfg.vp.BindEnv(prefix+".TerminalId", prefix+"_TERMINAL_ID")
-	cfg.vp.BindEnv(prefix+".URL", prefix+"_URL")
-	cfg.vp.BindEnv(prefix+".RedirectUrl", prefix+"_REDIRECT_URL")
-	cfg.vp.BindEnv(prefix+".UpdateUrl", prefix+"_UPDATE_URL")
+	prefix := "Member"
+	cfg.vp.BindEnv(prefix+".DB", "DB")
 	cfg.vp.AutomaticEnv()
 	cfg.vp.Unmarshal(&cfg.instance)
 }
