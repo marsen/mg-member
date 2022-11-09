@@ -11,13 +11,7 @@ type DB struct {
 }
 
 func (o *DB) Migrate() {
-	//todo connection database
-	dbURI := "host=localhost user=admin password=1234 dbname=member sslmode=disable" //todo connection string from config
-	db, err := gorm.Open(postgres.Open(dbURI), &gorm.Config{})
-
-	if err != nil {
-		panic(err)
-	}
+	db, err := o.connect()
 
 	err = db.AutoMigrate(&Member{})
 	if err != nil {
@@ -26,6 +20,19 @@ func (o *DB) Migrate() {
 }
 
 func (o *DB) Seed() {
+	db, err := o.connect()
+	m1 := o.NewMember("Mark", 18)
+	m2 := o.NewMember("Iris", 29)
+	m3 := o.NewMember("Jon", 34)
+	db.Table("members").Create(m1)
+	db.Table("members").Create(m2)
+	db.Table("members").Create(m3)
+	if err != nil {
+		panic(err)
+	}
+}
+
+func (o *DB) connect() (*gorm.DB, error) {
 	//todo connection database
 	dbURI := "host=localhost user=admin password=1234 dbname=member sslmode=disable" //todo connection string from config
 	db, err := gorm.Open(postgres.Open(dbURI), &gorm.Config{})
@@ -33,12 +40,7 @@ func (o *DB) Seed() {
 	if err != nil {
 		panic(err)
 	}
-	m1 := o.NewMember("Mark", 18)
-	m2 := o.NewMember("Iris", 29)
-	m3 := o.NewMember("Jon", 34)
-	db.Table("members").Create(m1)
-	db.Table("members").Create(m2)
-	db.Table("members").Create(m3)
+	return db, err
 }
 
 func (o *DB) NewMember(name string, age int) *Member {
