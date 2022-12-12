@@ -34,7 +34,7 @@ func (o *DB) Seed() {
 
 func (o *DB) connect() (*gorm.DB, error) {
 	//todo connection database
-	dbURI := "host=localhost user=admin password=1234 dbname=member sslmode=disable" //todo connection string from config
+	dbURI := "host=localhost user=admin password=p@ssw0rd dbname=member sslmode=disable" //todo connection string from config
 	db, err := gorm.Open(postgres.Open(dbURI), &gorm.Config{})
 
 	if err != nil {
